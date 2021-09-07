@@ -52,6 +52,8 @@ export const Animal = ({ animal, syncAnimals,
         }
     }, [animalId])
 
+    console.log(currentAnimal)
+
     return (
         <>
             <li className={classes}>
@@ -90,7 +92,7 @@ export const Animal = ({ animal, syncAnimals,
 
                             <h6>Owners</h6>
                             <span className="small">
-                                Owned by unknown
+                                {currentAnimal?.animalOwners?.map((animal) => animal.user.name).join(", ")}
                             </span>
 
                             {
