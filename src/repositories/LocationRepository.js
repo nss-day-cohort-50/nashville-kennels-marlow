@@ -37,5 +37,10 @@ export default {
     },
     async getAll() {
         return await fetchIt(`${Settings.remoteURL}/locations?_embed=animals&_embed=employeeLocations`)
+    },
+    async getAnimalsByLocation (locationId) {
+        debugger
+        const e = await fetch(`${Settings.remoteURL}/animals?locationId=${locationId}`)
+        return await e.json()
     }
 }
