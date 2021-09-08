@@ -51,7 +51,11 @@ export default ({ employee }) => {
                     employeeId
                         ? <>
                             <section>
-                                Caring for 0 animals
+                            {
+                                (resource.animals > 0)
+                                ?  <p>Caring for {resource.animals?.length}</p> 
+                                : <p>Not currently caring for any animals</p>
+                            }         
                             </section>
                             <section>
                             {
