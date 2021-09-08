@@ -22,6 +22,7 @@ export const Animal = ({ animal, syncAnimals,
     useEffect(() => {
         setAuth(getCurrentUser().employee)
         resolveResource(animal, animalId, AnimalRepository.get)
+        console.log("animal: ", animal)
     }, [])
 
     useEffect(() => {
