@@ -25,6 +25,9 @@ console.log("location:", location)
                 Total animals {location.animals.length}
             </section>
             <section>
+                Total Employees {location.employeeLocations.length}
+            </section>
+            <section>
                 Total locations 1
             </section>
         </article>
