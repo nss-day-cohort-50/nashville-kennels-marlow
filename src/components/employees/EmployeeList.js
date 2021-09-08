@@ -5,7 +5,7 @@ import "./EmployeeList.css"
  
 
 export default () => {
-    const [employees, setEmployees] = useState([])
+    const [emps, setEmployees] = useState([])
    
     useEffect(
         () => {
@@ -20,7 +20,7 @@ export default () => {
         <>
             <div className="employees">
                 {
-                    employees.map(employee => <Employee key={employee.id} employee={employee} updateEmployees={setEmployees} />)
+                    emps.map(employee => <Employee key={employee.id} employee={employee} updateEmployees={setEmployees} />)
                 }
             </div>
         </>
