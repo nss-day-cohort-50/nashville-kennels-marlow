@@ -20,6 +20,7 @@ export default ({ employee }) => {
             defineClasses("card employee--single")
         }
         resolveResource(employee, employeeId, EmployeeRepository.get)
+
     }, [])
 
     useEffect(() => {
@@ -28,25 +29,32 @@ export default ({ employee }) => {
         }
     }, [resource])
 
+
     
     return (    
         <article className={classes}>
             <section className="card-body">
                 <img alt="Kennel employee icon" src={person} className="icon--person" />
-                <h5 className="card-title">
+               {
+                 <>
+                    <section>
+                    <h5 className="card-title">
                     {
                         employeeId
-                            ? resource.name
-                            : <Link className="card-link"
-                                to={{
-                                    pathname: `/employees/${resource.id}`,
-                                    state: { employee: resource }
-                                }}>
-                                {resource.name}
-                            </Link>
-
+                        ? resource.name
+                                : <Link className="card-link"
+                                    to={{
+                                        pathname: `/employees/${resource.id}`,
+                                        state: { employee: resource }
+                                    }}>
+                                    {resource.name}
+                                </Link> 
                     }
-                </h5>
+                    </h5>
+
+                    </section>
+                    </>
+               }
                 {
                     employeeId
                         ? <>
