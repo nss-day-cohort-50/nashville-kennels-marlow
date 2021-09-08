@@ -8,11 +8,11 @@ export default {
             .then(data => {
                 let userWithRelationships
                 if (userLocations.length > 0) {
-                     userWithRelationships = userLocations[0].user
+                    userWithRelationships = userLocations[0].user
                     userWithRelationships.locations = userLocations
                     userWithRelationships.animals = data
                 } else {
-                     userWithRelationships = []
+                    userWithRelationships = []
                     userWithRelationships.locations = userLocations
                     userWithRelationships.animals = data
                 } 
