@@ -61,13 +61,26 @@ export default ({ employee, updateEmployees }) => {
                         </>
                         : ""
                 }
-
                 {
+                    employeeId
+                        ? <>
+                           <button className="btn--fireEmployee" onClick={() => {
+                        EmployeeRepository.delete(employeeId).then(() => EmployeeRepository.getAll().then(updateEmployees)
+                        )
+                    }}>Fire</button>
+                        </>
+                        : <button className="btn--fireEmployee" onClick={() => {
+                            EmployeeRepository.delete(employee.id).then(() => EmployeeRepository.getAll().then(updateEmployees)
+                            )
+                        }}>Fire</button>
+                }
+
+                {/* {
                     <button className="btn--fireEmployee" onClick={() => {
                         EmployeeRepository.delete(employee.id).then(() => EmployeeRepository.getAll().then(updateEmployees)
                         )
                     }}>Fire</button>
-                }
+                } */}
 
             </section>
 
