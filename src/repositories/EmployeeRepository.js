@@ -6,9 +6,16 @@ export default {
         const userLocations = await fetchIt(`${Settings.remoteURL}/employeeLocations?userId=${id}&_expand=location&_expand=user`)
         return await fetchIt(`${Settings.remoteURL}/animalCaretakers?userId=${id}&_expand=animal`)
             .then(data => {
-                const userWithRelationships = userLocations[0].user
-                userWithRelationships.locations = userLocations
-                userWithRelationships.animals = data
+                let userWithRelationships
+                if (userLocations.length > 0) {
+                     userWithRelationships = userLocations[0].user
+                    userWithRelationships.locations = userLocations
+                    userWithRelationships.animals = data
+                } else {
+                     userWithRelationships = []
+                    userWithRelationships.locations = userLocations
+                    userWithRelationships.animals = data
+                } 
                 return userWithRelationships
             })
     },
