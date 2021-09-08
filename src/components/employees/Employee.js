@@ -53,7 +53,14 @@ export default ({ employee }) => {
                                 Caring for 0 animals
                             </section>
                             <section>
-                                Working at unknown location
+                            {
+                                (resource.locations && resource.locations.length === 1) 
+                                ? <p>Working at {resource.locations[0]?.location?.name}</p> 
+                                : (resource.locations && resource.locations.length > 1)
+                                ?  <p>Working at both {resource.locations[0]?.location?.name} and {resource.locations[1]?.location?.name}</p>
+                                : <p>Not currently working</p>
+                            }
+                                
                             </section>
                         </>
                         : ""
