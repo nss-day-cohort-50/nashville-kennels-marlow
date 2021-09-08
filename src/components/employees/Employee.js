@@ -28,7 +28,8 @@ export default ({ employee }) => {
         }
     }, [resource])
 
-    return (
+    
+    return (    
         <article className={classes}>
             <section className="card-body">
                 <img alt="Kennel employee icon" src={person} className="icon--person" />
@@ -50,10 +51,21 @@ export default ({ employee }) => {
                     employeeId
                         ? <>
                             <section>
-                                Caring for 0 animals
+                            {
+                                (resource.animals > 0)
+                                ?  <p>Caring for {resource.animals?.length}</p> 
+                                : <p>Not currently caring for any animals</p>
+                            }         
                             </section>
                             <section>
-                                Working at unknown location
+                            {
+                                (resource.locations && resource.locations.length === 1) 
+                                ? <p>Working at {resource.locations[0]?.location?.name}</p> 
+                                : (resource.locations && resource.locations.length > 1)
+                                ?  <p>Working at both {resource.locations[0]?.location?.name} and {resource.locations[1]?.location?.name}</p>
+                                : <p>Not currently working</p>
+                            }
+                                
                             </section>
                         </>
                         : ""
