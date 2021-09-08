@@ -36,15 +36,23 @@ export default ({ employee }) => {
                 <h5 className="card-title">
                     {
                         employeeId
-                            ? resource.name
-                            : <Link className="card-link"
-                                to={{
-                                    pathname: `/employees/${resource.id}`,
-                                    state: { employee: resource }
-                                }}>
-                                {resource.name}
-                            </Link>
-
+                            ? <>
+                                <section>
+                                {
+                                    (resource.animals > 0)
+                                    ? <p>Caring for {resource.animals?.length}</p> 
+                                    : ""
+                                }
+                                </section>  
+                                </>
+                                    resource.name
+                                    : <Link className="card-link"
+                                        to={{
+                                            pathname: `/employees/${resource.id}`,
+                                            state: { employee: resource }
+                                        }}>
+                                        {resource.name}
+                                    </Link>
                     }
                 </h5>
                 {
@@ -54,7 +62,7 @@ export default ({ employee }) => {
                             {
                                 (resource.animals > 0)
                                 ?  <p>Caring for {resource.animals?.length}</p> 
-                                : <p>Not currently caring for any animals</p>
+                                : <p>Not caring for any animals</p>
                             }         
                             </section>
                             <section>
