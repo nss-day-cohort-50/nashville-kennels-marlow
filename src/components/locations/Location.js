@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router";
-import LocationRepository from "../../repositories/LocationRepository"
 import { Link } from "react-router-dom"
 import locationImage from "./location.png"
 import "./Location.css"
-
-
-
-
-// const getAnimalsForLocation = (id) => {
-//     return LocationRepository
-//         .getAnimalsByLocation(id)
-// }
 
 
 export default ({location}) => {
@@ -35,7 +25,7 @@ console.log("location:", location)
                 Total animals {location.animals.length}
             </section>
             <section>
-                Total locations
+                Total locations 1
             </section>
         </article>
     )
