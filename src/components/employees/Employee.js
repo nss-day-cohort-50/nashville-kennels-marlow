@@ -7,7 +7,10 @@ import person from "./person.png"
 import "./Employee.css"
 
 
-export default ({ employee }) => {
+
+
+export default ({ employee, updateEmployees }) => {
+    
     const [animalCount, setCount] = useState(0)
     const [location, markLocation] = useState({ name: "" })
     const [classes, defineClasses] = useState("card employee")
@@ -60,7 +63,10 @@ export default ({ employee }) => {
                 }
 
                 {
-                    <button className="btn--fireEmployee" onClick={() => {}}>Fire</button>
+                    <button className="btn--fireEmployee" onClick={() => {
+                        EmployeeRepository.delete(employee.id).then(() => EmployeeRepository.getAll().then(updateEmployees)
+                        )
+                    }}>Fire</button>
                 }
 
             </section>
