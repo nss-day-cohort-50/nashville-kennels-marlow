@@ -22,6 +22,7 @@ export const Animal = ({ animal, syncAnimals,
     useEffect(() => {
         setAuth(getCurrentUser().employee)
         resolveResource(animal, animalId, AnimalRepository.get)
+        console.log("animal: ", animal)
     }, [])
 
     useEffect(() => {
@@ -51,7 +52,7 @@ export const Animal = ({ animal, syncAnimals,
                 })
         }
     }, [animalId])
-
+    
     return (
         <>
             <li className={classes}>
@@ -84,7 +85,9 @@ export const Animal = ({ animal, syncAnimals,
                         <section>
                             <h6>Caretaker(s)</h6>
                             <span className="small">
-                                Unknown
+                                {currentAnimal?.animalCaretakers?.map((c)=>
+                                    <p>{c.user.name}</p>
+                                )}
                             </span>
 
 
