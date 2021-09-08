@@ -28,7 +28,8 @@ export default ({ employee }) => {
         }
     }, [resource])
 
-    return (
+    
+    return (    
         <article className={classes}>
             <section className="card-body">
                 <img alt="Kennel employee icon" src={person} className="icon--person" />
