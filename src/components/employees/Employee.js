@@ -36,23 +36,15 @@ export default ({ employee }) => {
                 <h5 className="card-title">
                     {
                         employeeId
-                            ? <>
-                                <section>
-                                {
-                                    (resource.animals > 0)
-                                    ? <p>Caring for {resource.animals?.length}</p> 
-                                    : ""
-                                }
-                                </section>  
-                                </>
-                                    resource.name
-                                    : <Link className="card-link"
-                                        to={{
-                                            pathname: `/employees/${resource.id}`,
-                                            state: { employee: resource }
-                                        }}>
-                                        {resource.name}
-                                    </Link>
+                            ? resource.name
+                            : <Link className="card-link"
+                                to={{
+                                    pathname: `/employees/${resource.id}`,
+                                    state: { employee: resource }
+                                }}>
+                                {resource.name}
+                            </Link>
+
                     }
                 </h5>
                 {
@@ -60,8 +52,8 @@ export default ({ employee }) => {
                         ? <>
                             <section>
                             {
-                                (resource.animals > 0)
-                                ?  <p>Caring for {resource.animals?.length}</p> 
+                                (resource.animals?.length > 0)
+                                ?  <p>Caring for {resource.animals?.length} animals</p> 
                                 : <p>Not caring for any animals</p>
                             }         
                             </section>
