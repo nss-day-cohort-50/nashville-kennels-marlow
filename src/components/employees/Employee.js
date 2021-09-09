@@ -47,6 +47,14 @@ export default ({ employee }) => {
 
                     }
                 </h5>
+                    </section>
+               }
+               {
+                   <section>
+                    Caring for {employee?.animalCaretakers?.length} animals
+                   </section>
+                   
+               }
                 {
                     employeeId
                         ? <>
