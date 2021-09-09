@@ -47,7 +47,6 @@ export default ({ employee }) => {
 
                 }
             </h5>
-                   
                
                {
                    <section>
