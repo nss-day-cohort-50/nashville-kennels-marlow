@@ -31,24 +31,24 @@ export default ({ employee }) => {
     
     return (    
         <article className={classes}>
-            <section className="card-body">
-                <img alt="Kennel employee icon" src={person} className="icon--person" />
-                <h5 className="card-title">
-                    {
-                        employeeId
-                            ? resource.name
-                            : <Link className="card-link"
-                                to={{
-                                    pathname: `/employees/${resource.id}`,
-                                    state: { employee: resource }
-                                }}>
-                                {resource.name}
-                            </Link>
+        <section className="card-body">
+            <img alt="Kennel employee icon" src={person} className="icon--person" />
+            <h5 className="card-title">
+                {
+                    employeeId
+                        ? resource.name
+                        : <Link className="card-link"
+                            to={{
+                                pathname: `/employees/${resource.id}`,
+                                state: { employee: resource }
+                            }}>
+                            {resource.name}
+                        </Link>
 
-                    }
-                </h5>
-                    </section>
-               }
+                }
+            </h5>
+                   
+               
                {
                    <section>
                     Caring for {employee?.animalCaretakers?.length} animals
